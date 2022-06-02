@@ -1,0 +1,19 @@
+ .nav-items a:hover, .nav-items a:focus {
+      text-decoration: underline;
+  }
+  
+  /* inline-block (wrapping) layout if there are 6 or more items */
+  
+  .nav-items li:nth-last-child(n+6), 
+  .nav-items li:nth-last-child(n+6) ~ * {
+      display: inline-block;
+      border: 0;
+    }
+    
+    .nav-items li:nth-last-child(n+6) a, 
+    .nav-items li:nth-last-child(n+6) ~ * a {
+        display: inline-block;
+    border: 0;
+}
+
+
