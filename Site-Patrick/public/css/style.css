@@ -60,25 +60,24 @@ justify-content: center;
 
 
 
-/
   
 .banner {
-  height: 150px;
+  height: 600px;
   padding: 40px 0;
   color: #000000;
-  background-image: url("../assets/img-hanna/studios\ hanna.jpg ");
+  background-image: url(../assets/img-hanna/back-cadastro.png);
   background-size: cover;
 }
 
 .banner .container {
-  height: 30%;
+  height: fit-content;
   font-size: 36px;
   justify-content: center;
   align-items: center;
 }
 
 .tamanho-conteudo { 
-  height: fit-content !important;
+  height: 100% !important;
 }
 
 .banner p {

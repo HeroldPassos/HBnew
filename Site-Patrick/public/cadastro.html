@@ -12,7 +12,7 @@
     <script src="./js/funcoes.js"></script>
 
 
-    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="icon" href="./assets/img-hanna/HannaLogo.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -74,14 +74,20 @@
 
                     <span class="tipo_campo">Senha:</span>
                     <input id="senha_input" type="password" placeholder="******">
-                    <div id="div_valid" style="display:none">
-                        Deve Conter:
-                        12 caracteres
-
-                    </div>
-
+                    
                     <span class="tipo_campo">Confirmação da Senha:</span>
                     <input id="confirmacao_senha_input" type="password" placeholder="******">
+                    
+                    <select name="" id="sel_personagem">
+                        <option value="null"> Escolha um personagem</option>
+                        <option value="1">Os impossiveis</option>
+                        <option value="2">Dick Vigarista </option>
+                        <option value="3">Capitão Caverna</option>
+                        <option value="4">Super Amigos</option>
+                    </select>
+                    
+                    
+                    <div id="div_valid" style="display:none"></div>
 
                     <button class="btn" onclick="cadastrar()">Cadastrar</button>
 
