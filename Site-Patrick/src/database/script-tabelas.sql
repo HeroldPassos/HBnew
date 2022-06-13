@@ -12,6 +12,7 @@ CREATE TABLE usuario (
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50)
+
 );
 
 CREATE TABLE aviso (
@@ -22,12 +23,12 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 ); 
 
-	CREATE TABLE medida (
-		id INT PRIMARY KEY AUTO_INCREMENT,
+	CREATE TABLE Personagem (
+		idPersonagem INT PRIMARY KEY AUTO_INCREMENT,
 		temperatura DOUBLE,
 		umidade DOUBLE,
 		momento DATETIME,
-		fk_aquario INT
+		fkusuario INT
 	);
 
 

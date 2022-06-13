@@ -78,7 +78,7 @@
                     <span class="tipo_campo">Confirmação da Senha:</span>
                     <input id="confirmacao_senha_input" type="password" placeholder="******">
                     
-                    <select name="" id="sel_personagem">
+                    <select class="tipo_campo" id="sel_personagem">
                         <option value="null"> Escolha um personagem</option>
                         <option value="1">Os impossiveis</option>
                         <option value="2">Dick Vigarista </option>
@@ -125,12 +125,13 @@
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
+        var selVar = sel_personagem.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || selVar == "" ) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
+f
             finalizarAguardar();
             return false;
         }
@@ -149,7 +150,9 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                selServer : selVar
+                
             })
         }).then(function (resposta) {
 
