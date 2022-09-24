@@ -18,15 +18,15 @@ CREATE TABLE usuario (
 	email VARCHAR(50),
 	senha VARCHAR(50),
 	fkPersonagens int,
-	FOREIGN KEY (fkPersonagens) REFERENCES personagens (idPersonagens)
+	FOREIGN KEY (fkPersonagens) REFERENCES medida (idPersonagens)
 );
 
-INSERT INTO personagens(personagem) values 
+INSERT INTO medida(personagem) values 
 ('Dick Vigarista'),
 ('OS impossiveis'),
 ('Tom&Jerry'),
 ('Zé Colmeia');
-/* inserinto personagens */
+/* inserindo personagens */
 
 
 

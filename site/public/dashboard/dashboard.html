@@ -93,7 +93,6 @@
         
     window.onload = obterDadosGrafico(1);
 
-    verificar_autenticacao();
 
     function alterarTitulo(idAquario) {
         var tituloAquario = document.getElementById("tituloAquario")
@@ -148,7 +147,7 @@
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Umidade',
+                label: 'Personagens',
                 data: [],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
@@ -194,8 +193,7 @@
             document.getElementById('myChart'),
             config
         );
-
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+    
     }
 
 
@@ -204,7 +202,7 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart) {
+   /*  function atualizarGrafico(idAquario, dados, myChart) {
 
         fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -252,5 +250,5 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-    }
+    } */
 </script>

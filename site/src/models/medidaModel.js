@@ -16,8 +16,8 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
         fkpersonagens as personagens
-                    from usuario, personagens
-                    where fkpersonagens = idpersonagens
+                    from usuario
+                    where fkpersonagens = ${idAquario}
                     order by id desc limit ${limite_linhas}`;
                 
         
@@ -31,7 +31,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 }
 
 function buscarMedidasEmTempoReal(idAquario) {
-
+console.log("você entrou aqui")
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
@@ -45,12 +45,10 @@ function buscarMedidasEmTempoReal(idAquario) {
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
+        fkpersonagens as personagens
+                    from usuario
+                    where fkpersonagens = ${idAquario}
+                    order by id desc limit ${limite_linhas}`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
