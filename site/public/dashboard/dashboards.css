@@ -204,13 +204,6 @@ body {
   margin: 20px;
 }
 
-.temperatura,
-.umidade {
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-}
-
 .cor-alerta {
   width: 13%;
   height: 30%;
@@ -227,9 +220,11 @@ body {
 }
 
 .graph {
-  width: 60%;
+  width: 80%;
   margin: auto;
   padding-top: 10px;
+  background-color: white;
+  border-radius: 0.2cm;
 }
 
 .tituloGraficos {

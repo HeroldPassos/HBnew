@@ -22,7 +22,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
                             JOIN personagens
                             ON fkPersonagens = idPersonagens
                                 GROUP BY fkPersonagens;
-                    `;
+                                                     `;
                 
         
     } else {
@@ -35,7 +35,6 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 }
 
 function buscarMedidasEmTempoReal(idAquario) {
-console.log("você entrou aqui")
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
