@@ -14,11 +14,15 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
                     where fk_aquario = ${idAquario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-        fkpersonagens as personagens
-                    from usuario
-                    where fkpersonagens = ${idAquario}
-                    order by id desc limit ${limite_linhas}`;
+        instrucaoSql = `
+            SELECT
+                personagens.personagem,
+                    count(fkPersonagens) as quantidade
+                        FROM usuario
+                            JOIN personagens
+                            ON fkPersonagens = idPersonagens
+                                GROUP BY fkPersonagens;
+                    `;
                 
         
     } else {
