@@ -6,12 +6,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Tempo Real</title>
+    <title>caça-palavras</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
 
     <script src="../js/funcoes.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -23,25 +24,22 @@
 
         <div class="header-left dash-header">
 
-            <h1>Hanna Barbera</h1>
+            <div class="logo">
+                <img src="../assets/img-hanna/HannaLogo.png" class="titulo" style="height: 50px;"></img>
+                <h1>Hanna Barbera</h1>
+            </div>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
             <div class="btn-nav">
-                <h3>Aquários</h3>
+                <h3>Caça-Palavras</h3>
             </div>
 
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
+                    <h3>Visitantes</h3>
                 </a>
             </div>
 
@@ -52,8 +50,35 @@
         </div>
 
         <div class="dash">
-            
-
+                <header id="header">
+                    <img src="../assets/img-hanna/iconCacaPalavras.png" alt="">
+                    <h1>Caça Palavras</h1>
+                </header>
+                <div>
+                    <form id="search" data-js="form">
+                        <input data-js="search" type="text">
+                        <button>Buscar</button>
+                    </form>
+                </div>
+                <table id="table">
+                    <tbody data-js="tbody">
+                        <tr data-js="line0"></tr>
+                        <tr data-js="line1"></tr>
+                        <tr data-js="line2"></tr>
+                        <tr data-js="line3"></tr>
+                        <tr data-js="line4"></tr>
+                        <tr data-js="line5"></tr>
+                        <tr data-js="line6"></tr>
+                        <tr data-js="line7"></tr>
+                        <tr data-js="line8"></tr>
+                        <tr data-js="line9"></tr>
+                        <tr data-js="line10"></tr>
+                        <tr data-js="line11"></tr>
+                        <tr data-js="line12"></tr>
+                        <tr data-js="line13"></tr>
+                        
+                    </tbody>
+                </table>
             <!-- Aqui colocar o caça palavras  -->
 
         </div>
@@ -61,10 +86,86 @@
 
 
 </body>
+</html>
 
 <script>
+ 
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+(function(){ 
+	var $form = document.querySelector('[data-js="form"]');
+	var $search = document.querySelector('[data-js="search"]');
+	var $tbody = document.querySelector('[data-js="tbody"]');
+
+	function getIndex(name){
+		if(gameWords.indexOf(name) > -1){
+			var i = gameWords.indexOf(name);
+			return indexes[i];
+		}
+		
+		$search.value = '';
+		return false;
+	}
+
+	function selectTd( line , column ){
+		var tr = $tbody.children[line];
+		var td = tr.children[column];
+		td.classList.add("color");
+		$search.value = '';
+	}
+
+	var letters = [
+		['f','r','e','d','l','c','e','o','i','v','s','a','s','p'],
+		['s','e','p','e','p','e','l','e','g','a','l','e','w','o'],
+		['c','t','a','n','b','c','s','a','o','i','q','v','e','i'],
+		['o','e','p','r','o','m','c','a','c','b','k','e','r','u'],
+		['o','l','c','o','g','e','e','u','a','r','r','l','t','y'],
+		['b','s','d','q','x','k','t','l','c','a','f','m','y','l'],
+		['y','b','i','s','z','o','r','a','k','s','g','a','u','k'],
+		['m','p','a','l','c','o','a','h','e','e','s','j','a','j'],
+		['z','m','p','t','r','e','s','j','r','l','k','k','s','h'],
+		['f','p','e','j','t','u','t','u','b','a','r','a','o','g'],
+		['f','p','e','e','t','a','m','l','o','j','h','l','f','z'],
+		['m','p','a','r','c','o','a','h','e','e','c','m','g','x'],
+		['o','b','i','r','s','n','c','a','t','a','z','a','h','c'],
+		['v','s','i','y','l','c','e','o','i','v','a','l','j','v'],
+		
+	];
+
+	var lines = [];
+
+	letters.map(function(item, index){
+		lines[index] = document.querySelector('[data-js="line'+ index +'"]')
+	});
+
+	letters.forEach(function(item, index){
+		letters[index].forEach(function(item){
+			lines[index].insertAdjacentHTML('beforeend', '<td>' + item + '</td>');
+		});
+	});
+
+	var indexes = [ 
+		[ [0,0],[0,1],[0,2],[0,3] ],
+		[ [2,11], [3,11], [4,11], [5,11], [6,11] ],
+		[ [1,0], [2,0],[3,0],[4,0],[5,0],[6,0] ],
+		[ [9,3],[10,3],[11,3],[12,3],[13,3] ],
+		[ [12,6], [12,7], [12,8],[12,9],[12,10],[12,11],[12,12]],
+		[ [1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[1,10]],
+        [[6,4],[6,5],[6,6],[6,7],[6,8]],
+        [[9,4],[9,5],[9,6],[9,7],[9,8],[9,9],[9,10],[9,11],[9,12]]
+		
+	]
+	var gameWords = ['fred','velma','scooby','jerry','catatau','pepelegal','zorak','tutubarao'];
+
+	$form.addEventListener('submit', function(event){
+		event.preventDefault();
+		var valueSearch = $search.value;
+		var getIndexes = getIndex(valueSearch);
+		for(var i = 0; i < getIndexes.length; i++){
+			selectTd(getIndexes[i][0], getIndexes[i][1])
+		}
+	}, false);
+
+}) ();
 
 </script>
-
-</html>

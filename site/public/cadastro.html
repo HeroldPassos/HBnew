@@ -73,7 +73,8 @@
                     <input id="email_input" type="text" placeholder="meuemail@provedor.com">
 
                     <span class="tipo_campo">Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******">
+                    <input id="senha_input" type="password" placeholder="******" >
+                    
 
                     <span class="tipo_campo">Confirmação da Senha:</span>
                     <input id="confirmacao_senha_input" type="password" placeholder="******">
@@ -117,6 +118,10 @@
 </html>
 
 <script>
+
+    function senhaValid(){
+        valid_id.style.display = "block"
+    }
     function cadastrar() {
         aguardar();
 
@@ -127,6 +132,7 @@
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
         var personagensVar = sel_personagens.value;
+        var carac = senhaVar.lenght
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || personagensVar == "") {
             cardErro.style.display = "block"
@@ -137,8 +143,7 @@
         }else if(nomeVar == ""){
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Preencha o campo nome)";
-        }
-        else {
+        }else{
             setInterval(sumirMensagem, 5000)
         }
 
