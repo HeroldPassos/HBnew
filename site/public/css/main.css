@@ -69,6 +69,19 @@
 	background-color: #FFF;
 }
 
+#table_2{
+	width: 650px;
+	height: 550px;
+	margin: auto;
+	margin-bottom: 1rem;
+	border: 3px solid #ff5c5c;
+	border-radius: 10px;
+	border-spacing: 0;
+	background-color: #FFF;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 0.5rem;
+}
 #table td{
 	border-bottom: 3px solid #ff5c5c;
 	border-right: 3px solid #ff5c5c;
@@ -82,6 +95,7 @@
 	font-size: 36px;
 	letter-spacing: 2.9px;
 }
+
 
 .color{
 	background-color: #eef882;

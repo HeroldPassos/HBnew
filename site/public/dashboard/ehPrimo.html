@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br" style="overflow:hidden;" >
+
+<head>
+    <link rel="shortcut icon" href="../assets/img-hanna/HannaLogo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ehPrimo</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="dashboards.css">
+
+    <script src="../js/funcoes.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+    <div class="janela">
+
+
+        <div class="header-left dash-header">
+
+            <div class="logo">
+                <img src="../assets/img-hanna/HannaLogo.png" class="titulo" style="height: 50px;"></img>
+                <h1>Hanna Barbera</h1>
+            </div>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./cards.html">
+                    <h3>Caça Palavras</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Visitantes</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Formiga Prima</h3>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash">
+            <header id="header">
+                <img src="../assets/img-hanna/Formiga_Atômica.png" style="height:60px ;">
+                <h1>Formiga Prima</h1>
+            </header>
+            <div>
+                <div id="search" data-js="form">
+                    <input id="formiga" type="text">
+                    <button onclick="calc()">Buscar</button>
+                </div>
+                <div id="table_2"></div>
+            </div>
+            
+        <!-- Aqui colocar o caça palavras  -->
+
+
+    </div>
+</div>
+    </div>
+
+
+</body>
+</html>
+
+<script>
+var primos = [];
+
+    function calc() {
+        var formiga_Prima = Number(formiga.value);
+        primos = [];
+        primos[0] = 2;
+        for (var numero = 3; numero <= formiga_Prima; numero += 2) {
+            var primariedade = true;
+            for (var count = 0; count < primos.length; count++) {
+                if (numero % primos[count] == 0) {
+                    primariedade = false;
+                    break
+                }
+            }
+            if (primariedade) primos.push(numero)
+        }
+        Exibir(formiga_Prima);
+    }
+
+    function Exibir(formiga_Prima) {
+        var frase = "Até o primo " + formiga_Prima + ", A Formiga Atômica possui " + primos.length + " primos, que são: <br>";
+        for (count = 0; count < primos.length; count++) {
+            frase += primos[count] + "<br>"
+        }
+        table_2.innerHTML = frase;
+    }
+
+</script>
