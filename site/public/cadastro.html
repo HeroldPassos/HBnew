@@ -119,9 +119,7 @@
 
 <script>
 
-    function senhaValid(){
-        valid_id.style.display = "block"
-    }
+   
     function cadastrar() {
         aguardar();
 
@@ -143,6 +141,14 @@
         }else if(nomeVar == ""){
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Preencha o campo nome)";
+        }else if(emailVar.indexOf("@") === -1 || emailVar.indexOf(".") === -1){
+            alert('Email invalido')
+            finalizarAguardar()
+            return
+        } else if(senhaVar != confirmacaoSenhaVar){
+            alert(" senhas estão diferentes, reveja ")
+            finalizarAguardar()
+            return 
         }else{
             setInterval(sumirMensagem, 5000)
         }

@@ -87,14 +87,14 @@ var primos = [];
         primos = [];
         primos[0] = 2;
         for (var numero = 3; numero <= formiga_Prima; numero += 2) {
-            var primariedade = true;
+            var primeiro = true;
             for (var count = 0; count < primos.length; count++) {
                 if (numero % primos[count] == 0) {
-                    primariedade = false;
+                    primeiro = false;
                     break
                 }
             }
-            if (primariedade) primos.push(numero)
+            if (primeiro) primos.push(numero)
         }
         Exibir(formiga_Prima);
     }
